@@ -159,12 +159,12 @@ Graduated from <b>National Institute of technology, Srinagar</b> and currently w
 							<p>It's easy to reach me out, just fill the form and hit the button, I will get in touch with you soon!<br/>
 Thanks for visiting</p>
 
-							<form method="post" action="#">
+							<form method="post" onsubmit="handleMessage(event)">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="col-6 col-12-mobile"><input id="name-box" type="text" name="name" placeholder="Name" /></div>
+									<div class="col-6 col-12-mobile"><input id="email-box" type="text" name="email" placeholder="Email" /></div>
 									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
+										<textarea name="message" id="message-box" placeholder="Message"></textarea>
 									</div>
 									<div class="col-12">
 										<input type="submit" value="Send Message" />
@@ -185,7 +185,33 @@ Thanks for visiting</p>
 						<li>&copy; Lovish Chib. All rights reserved.</li><li>2022</li>
 					</ul>
 
+<!-- The actual snackbar -->
+<div id="snackbar">Your message has been sent!!</div>
 			</div>
+<script>
+
+function handleToast() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function handleMessage(event) {
+event.preventDefault();
+handleToast();
+console.log("hello");
+let nodes = document.querySelectorAll("input");
+nodes[0].value = "";
+nodes[1].value = "";
+document.querySelector("textarea").value = "";
+}
+
+</script>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
