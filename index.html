@@ -8,9 +8,12 @@
 	<head>
 		<title>Lovish Chib</title>
 		<meta charset="utf-8" />
-		  <link rel="icon" type="image/png" href="/images/favicon.ico">
+		  <link rel="icon" type="image/png" href="/images/favicon.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>  
+		<script src="assets/js/email.js"></script>
+
 	</head>
 	<body class="is-preload">
 
@@ -203,12 +206,12 @@ function handleToast() {
 
 function handleMessage(event) {
 event.preventDefault();
-handleToast();
-console.log("hello");
+sendEmail(document.querySelector("#email-box").value, document.querySelector("#message-box").value, document.querySelector("#name-box").value);
 let nodes = document.querySelectorAll("input");
 nodes[0].value = "";
 nodes[1].value = "";
 document.querySelector("textarea").value = "";
+handleToast();
 }
 
 </script>
