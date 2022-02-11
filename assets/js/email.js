@@ -5,8 +5,8 @@ function sendEmail(email, message, name) {
   Port: "587",
 	Username : "lovishsinghchib@gmail.com",
 	Password : atob("bWpWNzJaUU00T2NMcXdSZA=="),
-	To : 'lovishsinghchib@outlook.com',
-	From : "lovishsinghchib@gmail.com",
+	To : 'codercrabby@gmail.com',
+	From : email,
 	Subject : `A message from ${name} - ${email}`,
 	Body : message,
 	}).then(message => console.log(message))
